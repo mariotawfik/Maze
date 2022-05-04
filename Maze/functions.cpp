@@ -28,16 +28,21 @@ void functions::import(){
             if(linenum == 0){
                 file >> intnum;
                 file >> linenum;
-                coordinates = new int*[linenum+2];
-                for(int i = 0; i < linenum; i++){
-                    coordinates[i] = new int[intnum];
+                coordinates = new int*[linenum+3];
+                for(int i = 0; i < 3; i++){
+                    if (i == 0) {
+                        coordinates[i] = new int[2];
+                    }
+                    else {
+                        coordinates[i] = new int[3];
+                    }
                 }
-                for(int i = 2; i < linenum; i++){
+                for(int i = 3; i < linenum+3; i++){
                     coordinates[i] = new int[intnum];
                 }
             }
             int tempInt = 0;
-            for(int i = 0; i < linenum; i++){
+            for(int i = 0; i < linenum+3; i++){
                 for(int k = 0; k < intnum; k++){
                     file >> tempInt;
                     coordinates[i][k] = tempInt;
@@ -56,4 +61,5 @@ void functions::printVector(){
             cout << coordinates[i][j] << endl;
         }
     }
-}
+} 
+                            
