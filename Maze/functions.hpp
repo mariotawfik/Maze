@@ -17,10 +17,9 @@ using namespace std;
 class functions {
 private:
     int** coordinates;
-    int currentPosition;
+    int *currentPosition, currentOrientation;
     int linenum;
     int intnum;
-    int North, West, South, East;
     stack<int> intersectionX, intersectionY, positionX, positionY, tempX, tempY;
     int lineWidth;
     int lineHeight;
@@ -28,12 +27,9 @@ private:
     int playerRadius;
 public:
     functions();
-    void move();
     void import();
     void printVector();
     void drawMaze();
-    void linePosition();
-    void wallChecker(int, int);
 };
 
 #endif /* functions_hpp */

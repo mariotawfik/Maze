@@ -14,7 +14,6 @@ int main()
 {
     functions a;
     a.import();
-    a.printVector();
     a.drawMaze();
         
     
