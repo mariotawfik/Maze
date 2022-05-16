@@ -17,10 +17,10 @@ using namespace std;
 class functions {
 private:
     int** coordinates;
-    int *currentPosition, currentOrientation;
+    int *currentPosition;
     int linenum;
     int intnum;
-    stack<int> intersectionX, intersectionY, positionX, positionY, tempX, tempY;
+    stack<int> positionX, positionY, windowX, windowY, ballSpeed;
     int lineWidth;
     int lineHeight;
     int lineLength;
@@ -28,8 +28,8 @@ private:
 public:
     functions();
     void import();
-    void printVector();
     void drawMaze();
+    void options();
 };
 
 #endif /* functions_hpp */

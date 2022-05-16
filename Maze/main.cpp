@@ -12,9 +12,10 @@ using namespace sf;
 
 int main()
 {
-    functions a;
-    a.import();
-    a.drawMaze();
+    functions *a;
+    a = new functions;
+    a->import();
+    a->drawMaze();
         
     
     return EXIT_SUCCESS;

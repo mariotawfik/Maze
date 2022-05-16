@@ -1,0 +1,203 @@
+        
+        
+        /*
+void functions::printVector(){
+    for(int i = 0; i < 2; i++){
+        if(i == 0){
+            cout << "Start Coordinates: " << endl;
+        }else{
+            cout << "End Coordinates: " << endl;
+        }
+        for(int j = 0; j < 3; j++){
+            cout << coordinates[i][j] << endl;
+        }
+        cout << endl << endl;
+    }
+    for(int i = 2; i < linenum+2; i++){
+        for(int j = 0; j < intnum; j++){
+            cout << coordinates[i][j] << endl;
+        }
+        cout << endl << endl;
+    }
+}
+*/
+        
+        //Moving Alg starts here
+        /*
+        int w = 0, l = 2;
+        int gaps = 0;
+        currentPosition = &coordinates[2][0];
+        stack<int> finalStepsY, finalStepsX;
+        int *prevPosition;
+        prevPosition = new int;
+        while((positionY.top() != (coordinates[1][0])*lineLength) && (positionX.top() != (coordinates[1][1]*lineHeight))){
+            if((15-*currentPosition) & North){
+                gaps++;
+            }
+            if((15-*currentPosition) & West){
+                gaps++;
+            }
+            if((15-*currentPosition) & East){
+                gaps++;
+            }
+            if((15-*currentPosition) & South){
+                gaps++;
+            }
+            if(gaps >= 3){
+                intersectionY.push(positionY.top());
+                intersectionX.push(positionX.top());
+            }
+            
+            if(((15-*currentPosition) & East)){
+                if(*prevPosition != 14){
+                prevPosition = currentPosition;
+                cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                w = w+1;
+                currentPosition = &coordinates[l][w];
+                positionY.push(positionY.top());
+                positionX.push(positionX.top()+lineLength);
+                }else{
+                    while(positionX.top() != intersectionX.top()){
+                        prevPosition = currentPosition;
+                        w = w-1;
+                        currentPosition = &coordinates[l][w];
+                        positionY.push(positionY.top());
+                        positionX.push(positionX.top()-lineLength);
+                        cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                    }
+                    currentPosition -= East;
+                }
+            }else{
+                if(((15-*currentPosition) & South)){
+                    if(*prevPosition != 13){
+                    prevPosition = currentPosition;
+                    cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                    l = l+1;
+                    currentPosition = &coordinates[l][w];
+                    positionY.push(positionY.top()+lineHeight);
+                    positionX.push(positionX.top());
+                    }else{
+                        while(positionY.top() != intersectionY.top()){
+                            prevPosition = currentPosition;
+                            l = l-1;
+                            currentPosition = &coordinates[l][w];
+                            positionY.push(positionY.top()-lineHeight);
+                            positionX.push(positionX.top());
+                            cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                        }
+                        currentPosition -= South;
+                    }
+                }else{
+                    if(((15-*currentPosition) & West)){
+                        if(*prevPosition != 11){
+                        prevPosition = currentPosition;
+                        cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                        w = w-1;
+                        currentPosition = &coordinates[l][w];
+                        positionY.push(positionY.top());
+                        positionX.push(positionX.top()-lineLength);
+                        }else{
+                            while(positionX.top() != intersectionX.top()){
+                                prevPosition = currentPosition;
+                                w = w+1;
+                                currentPosition = &coordinates[l][w];
+                                positionY.push(positionY.top());
+                                positionX.push(positionX.top()+lineLength);
+                                cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                            }
+                            currentPosition -= West;
+                        }
+                    }else{
+                        if(((15-*currentPosition) & North)){
+                            if(*prevPosition != 7){
+                            prevPosition = currentPosition;
+                            cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                            l = l-1;
+                            currentPosition = &coordinates[l][w];
+                            positionY.push(positionY.top()-lineHeight);
+                            positionX.push(positionX.top());
+                            }else{
+                                while(positionY.top() != intersectionY.top()){
+                                    prevPosition = currentPosition;
+                                    l = l+1;
+                                    currentPosition = &coordinates[l][w];
+                                    positionY.push(positionY.top()+lineHeight);
+                                    positionX.push(positionX.top());
+                                    cout << "Y: "<< l << " X: " << w << " position: " << *currentPosition << "   " << gaps << endl;
+                                }
+                                currentPosition -= North;
+                            }
+                        }
+                    }
+                }
+            }
+            gaps = 0;
+            
+            /*
+            if(*currentPosition == 14){
+                while((positionY.top() != intersectionY.top()) && (positionX.top() != intersectionX.top())){
+                    currentOrientation = West;
+                    w = w-1;
+                    currentPosition = &coordinates[l][w]-East;
+                    positionY.push(positionY.top());
+                    positionX.push(positionX.top()-lineLength);
+                }
+            }else{
+                if(*currentPosition == 13){
+                    while((positionY.top() != intersectionY.top()) && (positionX.top() != intersectionX.top())){
+                        currentOrientation = North;
+                        l = l-1;
+                        currentPosition = &coordinates[l][w];
+                        positionY.push(positionY.top()-lineHeight);
+                        positionX.push(positionX.top());
+                    }
+                }else{
+                    if(*currentPosition == 11){
+                        while((positionY.top() != intersectionY.top()) && (positionX.top() != intersectionX.top())){
+                            currentOrientation = East;
+                            w = w+1;
+                            currentPosition = &coordinates[l][w];
+                            positionY.push(positionY.top());
+                            positionX.push(positionX.top()+lineLength);
+                        }
+                    }else{
+                        if(*currentPosition == 7){
+                            while((positionY.top() != intersectionY.top()) && (positionX.top() != intersectionX.top())){
+                                currentOrientation = South;
+                                l = l+1;
+                                currentPosition = &coordinates[l][w];
+                                positionY.push(positionY.top()+lineHeight);
+                                positionX.push(positionX.top());
+                            }
+                        }
+                    }
+                }
+            }
+*/
+        /*
+            if((positionY.top() == *prevY) && (positionX.top() == *prevX)){
+                stack<int> tempY, tempX, tempY2, tempX2;
+                while((intersectionY != positionY) && (intersectionX != positionX)){
+                    tempY.push(positionY.top());
+                    positionY.pop();
+                    tempX.push(positionX.top());
+                    positionX.pop();
+                }
+                for(int i = 0; i < tempX.size(); i++){
+                    tempX2.push(tempX.top());
+                    tempY2.push(tempY.top());
+                }
+                while(tempX2.empty() == false){
+                    positionX.push(tempX2.top());
+                    positionY.push(tempY2.top());
+                    tempY2.pop();
+                    tempX2.pop();
+                }
+                while(tempX.empty() == false){
+                    positionX.push(tempX.top());
+                    positionY.push(tempY.top());
+                    tempY.pop();
+                    tempX.pop();
+                }
+            }
+    */

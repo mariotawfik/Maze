@@ -41,6 +41,7 @@
 		E62BBFE82823200C00F6D67F /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "SFML-2.5.1-macos-clang/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
 		E62BBFEA2823201000F6D67F /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "SFML-2.5.1-macos-clang/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
 		E62BBFEC282321B900F6D67F /* libsfml-window.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.dylib"; path = "SFML-2.5.1-macos-clang/lib/libsfml-window.2.5.dylib"; sourceTree = "<group>"; };
+		E64497DA2831CFF300686BD0 /* Old code */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Old code"; sourceTree = "<group>"; };
 		E67C4A7927FED7DA00653B82 /* Maze */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Maze; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67C4A7C27FED7DA00653B82 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E6EA72662823C85000D29291 /* functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = functions.hpp; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 				E6EA72662823C85000D29291 /* functions.hpp */,
 				E62BBF832822F2EA00F6D67F /* functions.cpp */,
 				E67C4A7C27FED7DA00653B82 /* main.cpp */,
+				E64497DA2831CFF300686BD0 /* Old code */,
 			);
 			path = Maze;
 			sourceTree = "<group>";
