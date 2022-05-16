@@ -18,15 +18,23 @@ class functions {
 private:
     int** coordinates;
     int *currentPosition;
-    int linenum;
-    int intnum;
-    stack<int> positionX, positionY, windowX, windowY, ballSpeed;
-    int lineWidth;
-    int lineHeight;
-    int lineLength;
+    int *linenum;
+    int *intnum;
+    stack<int> positionX, positionY;
+    stack<int> *reversedY, *reversedX;
+    int *lineWidth;
+    int *lineHeight;
     int playerRadius;
+    int *ballSpeed;
+    int X, Y;
+    string *mazeName;
+    sf::CircleShape *playerCircle;
+    sf::RectangleShape *rectangle;
+    sf::RenderWindow *window;
+    int windowX, windowY, playerDirection, *gaps;
 public:
     functions();
+    ~functions();
     void import();
     void drawMaze();
     void options();

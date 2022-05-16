@@ -14,9 +14,9 @@ int main()
 {
     functions *a;
     a = new functions;
+    a->options();
     a->import();
     a->drawMaze();
-        
     
     return EXIT_SUCCESS;
 }
